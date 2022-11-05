@@ -12,7 +12,6 @@ import 'package:hex/hex.dart';
 import 'package:image/image.dart';
 import 'package:gbk_codec_nohtml/gbk_codec.dart';
 import '../esc_pos_utils.dart';
-import 'enums.dart';
 import 'commands.dart';
 
 class Generator {
@@ -33,6 +32,8 @@ class Generator {
   int _getMaxCharsPerLine(PosFontType? font) {
     if (_paperSize == PaperSize.mm58) {
       return (font == null || font == PosFontType.fontA) ? 32 : 42;
+    } else if (_paperSize == PaperSize.mm72) {
+      return (font == null || font == PosFontType.fontA) ? 42 : 56;
     } else {
       return (font == null || font == PosFontType.fontA) ? 48 : 64;
     }
